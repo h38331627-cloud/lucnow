@@ -1,96 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VIKRAM JALAN</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<title>LUCKNOW FIXER Official</title>
 
-<!-- Meta Pixel Code -->
+<!-- META PIXEL -->
 <script>
 !function(f,b,e,v,n,t,s){
-if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+if(f.fbq)return;n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '892947739651696');
+fbq('init', '2789099911433655');
 fbq('track', 'PageView');
 </script>
 
 <noscript>
 <img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=892947739651696&ev=PageView&noscript=1"/>
+src="https://www.facebook.com/tr?id=2789099911433655&ev=PageView&noscript=1"/>
 </noscript>
-<!-- End Meta Pixel Code -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{
+background:#0f172a;
+font-family:sans-serif;
+margin:0;
+}
+
+.title{
+font-size:2.2rem;
+font-weight:800;
+color:#fff200;
+}
+
+.subtitle{
+color:#ffb300;
+font-weight:bold;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.07)}
+100%{transform:scale(1)}
+}
+
+.telegrambtn{
+animation:pulse 1.8s infinite;
+}
+
+.hurry{
+animation:pulse 1s infinite;
+color:#ff4444;
+font-weight:bold;
+}
+</style>
 
 </head>
 
-<body class="bg-white min-h-screen flex items-center justify-center p-4">
+<body class="flex items-center justify-center min-h-screen text-center text-white px-6">
 
-<div class="w-full max-w-sm text-center">
+<div>
 
-<img src="https://github.com/BkAdAgency/Telugufantasy/blob/main/teluguimg.jpg?raw=true"
-class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md" alt="Profile">
+<h1 class="title">LUCKNOW FIXER</h1>
+<p class="subtitle">(Official Telegram)</p>
 
-<h1 class="text-2xl font-bold mb-2">VIKRAM JALAN</h1>
+<div class="mt-6 text-xl flex justify-center gap-2">
+<span class="hurry">Join Now</span>
+<span id="countdown" class="text-yellow-400 text-2xl font-bold">30</span>
+<span>Sec Left</span>
+</div>
 
-<p class="text-green-600 text-sm font-semibold mb-3">
-🔥 <span id="memberCount">100,000</span> Active Members
+<div class="mt-6 text-lg">
+<span class="text-red-500 text-3xl font-bold">Top</span>
+<span class="bg-gray-700 px-3 py-1 rounded">Accuracy</span>
+</div>
+
+<p class="mt-4 text-sm font-semibold">
+Join Karo Daily Updates 👇
 </p>
 
-<button onclick="trackAndRedirect()" 
-class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition active:scale-95 mb-4">
-JOIN TELEGRAM NOW
+<div class="mt-10">
+<a href="https://t.me/+_kKG6NRcWBtjNzY1" id="joinBtn">
+<button class="telegrambtn px-6 py-4 rounded-lg font-bold text-white shadow-lg border-b-4 border-red-500"
+style="background:linear-gradient(45deg,#00f2ff,#0099ff);">
+JOIN TELEGRAM CHANNEL
 </button>
-
-<p class="text-gray-600 text-sm mb-5">
-Daily exclusive fantasy updates. Limited access.
-</p>
-
-<p class="text-[11px] text-gray-400 mt-4">
-Instant access • Free to join
-</p>
-
-<p class="text-[11px] text-gray-500 mt-6">
-CONTACT FOR ADVERTISEMENT - 
-<a href="https://t.me/BkAdAgency4" target="_blank" class="text-blue-600 font-semibold">
-@BkAdAgency4
 </a>
+</div>
+
+<p class="mt-6 text-sm uppercase font-semibold">
+🔥 LUCKNOW FIXER <br>
+UPDATES COMMUNITY 👑
+</p>
+
+<p class="text-[10px] mt-5 text-gray-400">
+legal • not promoting any financial loss
 </p>
 
 </div>
 
 <script>
 
-function trackAndRedirect() {
+let timeLeft = 30;
+const countdown = document.getElementById("countdown");
 
-  fbq('track', 'Lead', {
-    content_name: 'Telegram Join Button',
-    value: 1,
-    currency: 'INR'
-  });
+const timer = setInterval(() => {
+countdown.innerText = timeLeft;
+timeLeft--;
 
-  setTimeout(function(){
-    window.location.href = "https://t.me/+B84Y1PQZEtFkZjY1";
-  }, 800);
+if(timeLeft < 0){
+clearInterval(timer);
+
+// Conversion tracking
+fbq('track', 'Lead');
+
+// Redirect
+window.location.href = "https://t.me/+_kKG6NRcWBtjNzY1";
 }
+},1000);
 
-let count = 100000;
-const counter = document.getElementById("memberCount");
-
-function updateCounter() {
-  const change = Math.floor(Math.random() * 3) + 1;
-  count += change;
-  counter.innerText = count.toLocaleString();
-}
-
-setInterval(updateCounter, 3000);
+// Button click tracking
+document.getElementById("joinBtn").addEventListener("click", () => {
+fbq('track', 'Lead');
+});
 
 </script>
 
