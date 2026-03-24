@@ -19,7 +19,10 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)
 }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
+// INIT
 fbq('init', '935834612128332');
+
+// PAGE VIEW
 fbq('track', 'PageView');
 </script>
 
@@ -50,12 +53,12 @@ font-weight:bold;
 
 @keyframes pulse{
 0%{transform:scale(1)}
-50%{transform:scale(1.07)}
+50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
 
 .telegrambtn{
-animation:pulse 1.8s infinite;
+animation:pulse 1.5s infinite;
 }
 
 .hurry{
@@ -112,8 +115,11 @@ legal • not promoting any financial loss
 <script>
 
 let timeLeft = 30;
+let leadTracked = false;
+
 const countdown = document.getElementById("countdown");
 
+// TIMER
 const timer = setInterval(() => {
 countdown.innerText = timeLeft;
 timeLeft--;
@@ -121,17 +127,26 @@ timeLeft--;
 if(timeLeft < 0){
 clearInterval(timer);
 
-// Conversion tracking
+// TRACK ONLY ONCE
+if(!leadTracked){
 fbq('track', 'Lead');
+fbq('track', 'CompleteRegistration');
+leadTracked = true;
+}
 
-// Redirect
-window.location.href = "https://t.me/+_kKG6NRcWBtjNzY1";
+// FAST REDIRECT
+window.location.replace("https://t.me/+_kKG6NRcWBtjNzY1");
 }
 },1000);
 
-// Button click tracking
+// BUTTON CLICK TRACKING
 document.getElementById("joinBtn").addEventListener("click", () => {
+
+if(!leadTracked){
 fbq('track', 'Lead');
+leadTracked = true;
+}
+
 });
 
 </script>
