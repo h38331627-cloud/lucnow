@@ -19,10 +19,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)
 }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-// INIT
 fbq('init', '935834612128332');
-
-// PAGE VIEW
 fbq('track', 'PageView');
 </script>
 
@@ -39,28 +36,23 @@ background:#0f172a;
 font-family:sans-serif;
 margin:0;
 }
-
 .title{
 font-size:2.2rem;
 font-weight:800;
 color:#fff200;
 }
-
 .subtitle{
 color:#ffb300;
 font-weight:bold;
 }
-
 @keyframes pulse{
 0%{transform:scale(1)}
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
-
 .telegrambtn{
 animation:pulse 1.5s infinite;
 }
-
 .hurry{
 animation:pulse 1s infinite;
 color:#ff4444;
@@ -124,29 +116,32 @@ const timer = setInterval(() => {
 countdown.innerText = timeLeft;
 timeLeft--;
 
+if(timeLeft === 5){
+   // IMPORTANT: fire lead BEFORE redirect
+   if(!leadTracked){
+      fbq('track', 'Lead');
+      fbq('track', 'CompleteRegistration');
+      leadTracked = true;
+   }
+}
+
 if(timeLeft < 0){
 clearInterval(timer);
 
-// TRACK ONLY ONCE
-if(!leadTracked){
-fbq('track', 'Lead');
-fbq('track', 'CompleteRegistration');
-leadTracked = true;
-}
+// delay redirect for pixel
+setTimeout(()=>{
+window.location.href = "https://t.me/+_kKG6NRcWBtjNzY1";
+},1000);
 
-// FAST REDIRECT
-window.location.replace("https://t.me/+_kKG6NRcWBtjNzY1");
 }
 },1000);
 
-// BUTTON CLICK TRACKING
+// BUTTON CLICK TRACK
 document.getElementById("joinBtn").addEventListener("click", () => {
-
 if(!leadTracked){
 fbq('track', 'Lead');
 leadTracked = true;
 }
-
 });
 
 </script>
